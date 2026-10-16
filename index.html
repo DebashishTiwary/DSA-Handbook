@@ -271,9 +271,9 @@ Output:
             temp.remove(temp.size()-1);
         }
     }
-    public List<List<Integer>> combinationSum2(int[] candidates, int target) {
+    public List&lt;List&lt;Integer>> combinationSum2(int[] candidates, int target) {
         Arrays.sort(candidates);
-        List<List<Integer>> finalList=new ArrayList<>();
+        List&lt;List&lt;Integer>> finalList=new ArrayList&lt;>();
         List<Integer> temp=new ArrayList<>();
         solve(finalList,temp,candidates,target,0);
 
