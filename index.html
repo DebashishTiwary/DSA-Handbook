@@ -20,28 +20,20 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="#">Home</a>
         </li>
-        <!-- <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-        </li> -->
       </ul>
-      <form class="d-flex gap-2" role="User">
-        <button class="btn btn-primary" type="submit">LogIn</button>
-        <button class="btn btn-outline-success" type="submit">SignUp</button>
-      </form>
+      <div class="d-flex align-items-center gap-2">
+        
+        <!-- Render Google Sign-In Button here when logged out -->
+        <div id="google-login-btn"></div>
+
+        <!-- Render User Profile here when logged in (Hidden by default) -->
+        <div id="user-profile" class="d-none align-items-center gap-2">
+          <img id="user-pic" src="" alt="Profile" class="rounded-circle border" width="38" height="38" style="object-fit: cover;">
+          <span id="user-name" class="fw-semibold text-dark"></span>
+          <button onclick="handleLogout()" class="btn btn-outline-danger btn-sm ms-2" type="button">Log Out</button>
+        </div>
+
+      </div>
     </div>
   </div>
 </nav>
@@ -107,5 +99,72 @@
     </div>
   </div>
 </div>
+<!-- 1. Include Google Identity Services SDK -->
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+
+<!-- 2. Google Script & App Logic -->
+<script>
+  async function handleCredentialResponse(response) {
+    try {
+      const res = await fetch('http://localhost:3000/api/google-login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ token: response.credential })
+      });
+
+      const data = await res.json();
+
+      if (data.success) {
+        localStorage.setItem('isLoggedIn', 'true');
+        localStorage.setItem('userName', data.name);
+        localStorage.setItem('userPic', data.picture);
+        updateNavbarUI();
+      } else {
+        alert("Server rejected login: " + data.message);
+      }
+    } catch (err) {
+      console.error("Network error:", err);
+      alert("Could not connect to the backend server.");
+    }
+  }
+
+  window.onload = function () {
+    // Initialize Google SDK with your Client ID
+    google.accounts.id.initialize({
+      client_id: "600778720893-aka0nllru69u6s525ue0ijpqkuf5h14m.apps.googleusercontent.com", // <-- Put your Google Client ID here
+      callback: handleCredentialResponse
+    });
+
+    // Render the Google button inside your navbar container
+    google.accounts.id.renderButton(
+      document.getElementById("google-login-btn"),
+      { theme: "outline", size: "medium", shape: "pill" }
+    );
+
+    updateNavbarUI();
+  };
+
+  function updateNavbarUI() {
+    if (localStorage.getItem('isLoggedIn') === 'true') {
+      document.getElementById('google-login-btn').classList.add('d-none');
+      
+      const profileDiv = document.getElementById('user-profile');
+      profileDiv.classList.remove('d-none');
+      profileDiv.classList.add('d-flex');
+      
+      document.getElementById('user-name').innerText = localStorage.getItem('userName');
+      document.getElementById('user-pic').src = localStorage.getItem('userPic');
+    } else {
+      document.getElementById('google-login-btn').classList.remove('d-none');
+      document.getElementById('user-profile').classList.add('d-none');
+    }
+  }
+
+  function handleLogout() {
+    localStorage.clear();
+    updateNavbarUI();
+    window.location.reload();
+  }
+</script>
 </body>
 </html>
