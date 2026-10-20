@@ -11,8 +11,8 @@
   <div class="container-fluid">
     <div class="d-flex align-items-center gap-2">
     <a href="index.html" class="btn btn-success mt-auto">Dashboard</a>
-    <button class="btn btn-outline-primary" id="addsolbox" type="submit">Add Solution</button>
-    <div id="solbox"></div>
+    <button class="btn btn-outline-primary" id="addcodebox" type="submit">Add Solution</button>
+    <div id="codebox"></div>
     </div>
     <form class="d-flex" role="search">
       <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
@@ -25,14 +25,17 @@
     <a class="navbar-brand " href="#"><h1>Conquering Arrays</h1> </a>
   </div>
 </nav>
+<div id="solutionbox">
+    
+</div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
   <script>
-let addsol = document.getElementById("addsolbox");
+let addcode = document.getElementById("addcodebox");
 
-addsol.addEventListener("click", (e) => {
+addcode.addEventListener("click", (e) => {
     e.preventDefault(); 
     
-    let container = document.getElementById("solbox");
+    let container = document.getElementById("codebox");
     
    
     container.innerHTML = `
@@ -67,9 +70,18 @@ addsol.addEventListener("click", (e) => {
             event.stopPropagation();
         } 
         else{
-            console.log(document.getElementById('codeTextarea'));
+            event.preventDefault();
+            const code= document.getElementById('codeTextarea').value;
+            const questionlink=document.getElementById('validationCustom01').value;
+            let container= document.getElementById('solutionbox');
+            container.innerHTML=`
+            <div class="grid text-center" style="background-color: #e3f2fd;">
+  <div class="g-col-6" style="background-color: #e3f2fd;">${code}</div>
+  <div class="g-col-6"></div>
+</div>
+            `;
             alert("Code Successfully Added");
-            container.innerHTML="";
+            // container.innerHTML="";
         }
         form.classList.add('was-validated');
     }, false);
