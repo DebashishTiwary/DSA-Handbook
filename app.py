@@ -4,7 +4,7 @@ import pymongo
 import re
 import requests
 from datetime import datetime,timedelta,timezone
-
+# st.code("for i in range(8): foo()")
 st.set_page_config(page_icon=":ledger:",page_title="DSA-Handbook",layout="wide")
 # st.image("logo.JPG")
 custom_html = """
@@ -65,7 +65,9 @@ for contest in data:
 
 tab1,tab2=st.tabs(["My Solutions","Gymkhana"])
 with tab1:
-   st.page_link("pages/arrays.py", label="Arrays")
-   st.page_link("pages/binarysearch.py", label="Binary Search")
-   st.page_link("pages/hashing.py", label="Hashing")
-   st.page_link("pages/sorting.py", label="Sorting")
+   taba,tabb,tabc,tabd=st.tabs(["Arrays","Binary Search","Hashing","Sorting"])
+with taba:
+     st.title("Array Solutions")
+     tabaa,tabab=st.tabs(["My Solutions","Add new Solution"])
+with tabb:
+   st.title("Binary Search")
