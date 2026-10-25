@@ -62,3 +62,10 @@ for contest in data:
     row_cols[1].write(contest['title'])
     row_cols[2].write(str(contest['startTime']))
     row_cols[3].link_button("Go to Contest", contest['url'], use_container_width=True)
+
+tab1,tab2=st.tabs(["My Solutions","Gymkhana"])
+with tab1:
+   st.page_link("pages/arrays.py", label="Arrays")
+   st.page_link("pages/binarysearch.py", label="Binary Search")
+   st.page_link("pages/hashing.py", label="Hashing")
+   st.page_link("pages/sorting.py", label="Sorting")
