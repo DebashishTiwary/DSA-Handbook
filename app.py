@@ -4,30 +4,23 @@ import pymongo
 import re
 import requests
 from datetime import datetime,timedelta,timezone
+import pandas as pd
 # st.code("for i in range(8): foo()")
 st.set_page_config(page_icon=":ledger:",page_title="DSA-Handbook",layout="wide")
 # st.image("logo.JPG")
 custom_html = """
-<div style="
-    display: flex; 
-    align-items: center; 
-    background-color: #f0f2f6; 
-    padding: 20px; 
-    border-radius: 10px; 
-    width: 100%;
-    border: 2px solid #ff5733;
-">
-   
-    <div style="flex-grow: 1; text-align: center; margin-right: 60px;">
-        <h2 style="margin: 0; padding: 0;">My DSA Handbook</h2>
-       <p>Everything is an Algorithm</p>
-    </div>
+<div style="display: flex; align-items: center; padding: 10px; border-radius: 10px; width: 100%; border-bottom: 2px solid #ff5733;"> 
+    <div style="flex-grow: 1; text-align: center; margin-right: 60px; border:1px #000080;backgroud-color:red"> 
+        <h2 style="margin: 0; padding: 0; font-family: 'Times New Roman', Times, serif;">My DSA Handbook</h2> 
+        <p style="margin: 5px 0 0 0;">Everything is an Algorithm</p> 
+    </div> 
 </div>
 """
-st.html(custom_html)
+
+# Render the HTML safely inside your Streamlit app
+st.markdown(custom_html, unsafe_allow_html=True)
 # -------------------------------------------------------------------------
 #contests
-st.subheader("Upcoming Contests")
 def convert2IST(timestamp):
   seconds=timestamp/1000
   utc= datetime.fromtimestamp(seconds,timezone.utc)
@@ -42,30 +35,47 @@ tab1,tab2,tab3=st.tabs(["Upcomig Contests","My Solutions","Gymkhana"])
 with tab1:
     data=requests.get("https://competeapi.vercel.app/contests/upcoming/").json()
     # st.dataframe(data)
-    for contest in data:
-        contest['startTime']=convert2IST(contest['startTime'])
-        contest['endTime']=convert2IST(contest['endTime'])
-        contest['duration']=contest['duration']/(1000*60)
-        # contest['url']=st.page_link(contest['url'], label="Home")
-        # st.dataframe(data)
 
-    header_cols = st.columns([1.5, 3, 2.5, 1.5])
-    header_cols[0].markdown("**Platform**")
-    header_cols[1].markdown("**Title**")
-    header_cols[2].markdown("**Date & Time**")
-    header_cols[3].markdown("**Participate**")
-    # header_cols[4].markdown("**End Time**")
-    # header_cols[5].markdown("**Action**")
-    st.divider()
+# 1. Load data and convert into a DataFrame
+    df = pd.DataFrame(data)
 
-    for contest in data:
-        row_cols = st.columns([1.5, 3, 2.5, 1.5])
+# 2. Cleanup data fields for better display
+    df["site"] = df["site"].str.upper()
+
+    df["startTime"] = df["startTime"].apply(convert2IST)
+    df["endTime"] = df["endTime"].apply(convert2IST)
+    df["duration"] = df["duration"] / (1000 * 60)
     
-    
-        row_cols[0].write(contest['site'].upper())
-        row_cols[1].write(contest['title'])
-        row_cols[2].write(str(contest['startTime']))
-        row_cols[3].link_button("Go to Contest", contest['url'], use_container_width=True)
+
+    filtered_df = df[["site", "title", "startTime", "url"]]
+
+    st.dataframe(
+        filtered_df,
+        column_config={
+            "site": st.column_config.TextColumn(
+                "Platform",
+                help="Coding platform hosting the contest",
+                width="medium",
+            ),
+            "title": st.column_config.TextColumn(
+                "Contest Title",
+                width="large",
+            ),
+            "startTime": st.column_config.DatetimeColumn(
+                "Date & Time",
+                format="D MMM YYYY, h:mm A",  # Clean, readable time format
+                width="medium",
+            ),
+            "url": st.column_config.LinkColumn(
+                label="Go to Contest ",
+                display_text="Register Here",
+                width="medium",
+            ),
+        },
+        hide_index=True,
+        use_container_width=True,
+    )
+
 
 
 with tab2:
