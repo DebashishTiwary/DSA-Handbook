@@ -47,7 +47,7 @@ with tab1:
     
 
     filtered_df = df[["site", "title", "startTime", "url"]]
-
+    # learn about this column_config more
     st.dataframe(
         filtered_df,
         column_config={
