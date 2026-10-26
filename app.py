@@ -36,10 +36,9 @@ with tab1:
     data=requests.get("https://competeapi.vercel.app/contests/upcoming/").json()
     # st.dataframe(data)
 
-# 1. Load data and convert into a DataFrame
     df = pd.DataFrame(data)
 
-# 2. Cleanup data fields for better display
+
     df["site"] = df["site"].str.upper()
 
     df["startTime"] = df["startTime"].apply(convert2IST)
@@ -63,7 +62,7 @@ with tab1:
             ),
             "startTime": st.column_config.DatetimeColumn(
                 "Date & Time",
-                format="D MMM YYYY, h:mm A",  # Clean, readable time format
+                format="D MMM YYYY, h:mm A",  
                 width="medium",
             ),
             "url": st.column_config.LinkColumn(
