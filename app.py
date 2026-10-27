@@ -236,8 +236,23 @@ else:
                                      st.caption(f"Language: **{sol['language']}**")
                                    exp,code=st.tabs(["Explanaion","Code"])
                                    with exp:
+                                      # Claude comes into play
                                       if "Could not generate explanation automatically" in sol["explanation"]:
-                                         st.link_button("Get my solution","https://gemini.google.com/?hl=en-IN")
+                                         sol["explanation"]="Jhonny love's doing sins"
+                                         st.write(sol["explanation"])
+                                         encoded_prompt=f"""Analyze this {sol['language']} solution for the DSA problem {sol['problem_title']}:
+                                                 
+                                                 Code:
+                                                 {sol['code']}
+                                                 
+                                                 Provide:
+                                                 1. A brief summary of the approach (1-2 sentences).
+                                                 2. Step-by-step breakdown of how the logic works.
+                                                 3. Time and Space Complexity.
+                                                 Keep it clean, concise, and formatted using Markdown.
+                                                 """
+                                         claude_url = f"https://claude.ai/new?q={encoded_prompt}"
+                                         st.link_button("Get my solution",claude_url)
                                       else:
                                          st.write(sol["explanation"])
                                    with code:
