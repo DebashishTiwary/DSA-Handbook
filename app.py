@@ -238,7 +238,7 @@ else:
                                    with exp:
                                       # Claude comes into play
                                       if "Could not generate explanation automatically" in sol["explanation"]:
-                                         sol["explanation"]="Jhonny love's doing sins"
+                                         sol["explanation"]="Jhonny love's commiting sins"
                                          st.write(sol["explanation"])
                                          encoded_prompt=f"""Analyze this {sol['language']} solution for the DSA problem {sol['problem_title']}:
                                                  
