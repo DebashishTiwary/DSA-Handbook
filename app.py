@@ -353,6 +353,47 @@ else:
             with dp:
                for sol in user_solutions_dp:
                   createCard(sol)
+
+  with tab3:
+     surprise,comp=st.tabs(["Let's Test","Company Wise"])
+     with comp:
+        def data_table(file):
+           data=pd.read_csv(file)
+           st.dataframe(data,column_config={
+                "Difficulty": st.column_config.TextColumn(
+                    width="medium",
+                ),
+                "title": st.column_config.TextColumn(
+                    "Title",
+                    width="large",
+                ),
+                "Frequency": st.column_config.TextColumn(
+                    "Frequency",
+                      
+                    width="medium",
+                ),
+                "Acceptance Rate": st.column_config.TextColumn(
+                                    "Acceptance Rate",
+                                      
+                                    width="medium",
+                                ),
+                "Link": st.column_config.LinkColumn(
+                    label="Link",
+                    display_text="Conqure IT",
+                    width="medium",
+                ),
+                "Topics": st.column_config.TextColumn(
+                                    "Topics",
+                                      
+                                    width="medium",
+                                ),
+            },
+            hide_index=True,
+            width="stretch",)
+        company=st.selectbox("Select your destination",("Acko","Apple","Atlassian","Blinkit","Google"))
+        val=f'{company}.csv'
+        data_table(val)
+     
                
                   
 
