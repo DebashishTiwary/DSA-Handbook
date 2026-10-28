@@ -6,6 +6,7 @@ import requests
 from datetime import datetime,timedelta,timezone
 import pandas as pd
 import streamlit.components.v1 as components
+import urllib.parse
 # st.code("for i in range(8): foo()")
 st.set_page_config(page_icon=":ledger:",page_title="DSA-Handbook",layout="wide")
 # st.image("logo.JPG")
@@ -44,11 +45,13 @@ def generate_code_explanation(problem_title, code, language):
         Code:
         {code}
         
-        Provide:
-        1. A brief summary of the approach (1-2 sentences).
-        2. Step-by-step breakdown of how the logic works.
+        1.Give approach as if you are explaning to layman and it should be clear idea.(more focus)
+        2. Very Brief explanation of the code
         3. Time and Space Complexity.
-        Keep it clean, concise, and formatted using Markdown.
+        4.All in higlish and understandable to layman
+        5.No followup question
+
+        Keep it clean, concise,and formatted using Markdown and be fast.
         """
     response = client.models.generate_content(model="gemini-3.8-flash",contents=prompt)
     return response.text
@@ -227,7 +230,14 @@ else:
               user_solutions_dp.append(sol)
            else:
               user_solutions_others.append(sol)
+        @st.fragment
         def createCard(sol):
+            sol_id_str = str(sol["_id"])
+            editing_key = f"editing_{sol_id_str}"
+            text_key = f"text_input_{sol_id_str}"
+
+            if editing_key not in st.session_state:
+               st.session_state[editing_key] = False
             with st.container(border=True):
                                    col1,col2=st.columns([3,1])
                                    with col1:
@@ -237,24 +247,52 @@ else:
                                    exp,code=st.tabs(["Explanaion","Code"])
                                    with exp:
                                       # Claude comes into play
-                                      if "Could not generate explanation automatically" in sol["explanation"]:
-                                         sol["explanation"]="Jhonny love's commiting sins"
-                                         st.write(sol["explanation"])
-                                         encoded_prompt=f"""Analyze this {sol['language']} solution for the DSA problem {sol['problem_title']}:
+                                    #   st.write(sol['explanation'])
+                                      if not st.session_state[editing_key]:
+                                       st.markdown(sol["explanation"])
+                                       if st.button("Edit Explanation", key=f"edit_btn_{sol_id_str}"):
+                                          st.session_state[editing_key] = True
+                                      else:
+                                          updated_explanation = st.text_area(
+                                                            "Edit Explanation:",
+                                                            value=sol["explanation"],
+                                                            height=200,
+                                                            key=text_key,
+                                                               )
+                                          col_save, col_cancel,col_ask = st.columns(3)
+                                          with col_ask:
+                                       
+                                             
+                                             encoded_prompt=f"""Analyze this {sol['language']} solution for the DSA problem {sol['problem_title']}:
                                                  
                                                  Code:
                                                  {sol['code']}
                                                  
                                                  Provide:
-                                                 1. A brief summary of the approach (1-2 sentences).
-                                                 2. Step-by-step breakdown of how the logic works.
+                                                 1.Give approach as if you are explaning to layman and it should be clear idea.(more focus)
+                                                 2. Very Brief explanation of the code
                                                  3. Time and Space Complexity.
-                                                 Keep it clean, concise, and formatted using Markdown.
+                                                 4.No dry run required
+                                                 5.All in higlish and understandable to layman
+                                                 6.No followup question
+                                                 
+                                                Keep it clean, concise,and formatted using Markdown and be fast
                                                  """
-                                         claude_url = f"https://claude.ai/new?q={encoded_prompt}"
-                                         st.link_button("Get my solution",claude_url)
-                                      else:
-                                         st.write(sol["explanation"])
+                                             safe_prompt = urllib.parse.quote(encoded_prompt)
+                                             claude_url = f"https://claude.ai/new?q={safe_prompt}"
+                                             st.link_button("Get my solution",claude_url)
+                                          with col_save:
+                                             if st.button("Save Changes", key=f"save_{sol_id_str}"):
+                                                db.solutions.update_one(
+                                                      {"_id": sol["_id"]},
+                                                      {"$set": {"explanation": updated_explanation}},
+                                                      )
+                                                st.session_state[editing_key] = False
+                                                st.success("Explanation updated!")
+                                          with col_cancel:
+                                             if st.button("Cancel", key=f"cancel_{sol_id_str}"):
+                                                st.session_state[editing_key] = False
+                                         
                                    with code:
                                       st.code(sol["code"])
                                    if st.button("Delete Problem Card", key=str(sol["_id"])):
