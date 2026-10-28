@@ -289,6 +289,7 @@ else:
                                                       )
                                                 st.session_state[editing_key] = False
                                                 st.success("Explanation updated!")
+                                                st.rerun()
                                           with col_cancel:
                                              if st.button("Cancel", key=f"cancel_{sol_id_str}"):
                                                 st.session_state[editing_key] = False
