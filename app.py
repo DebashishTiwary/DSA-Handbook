@@ -7,6 +7,9 @@ from datetime import datetime,timedelta,timezone
 import pandas as pd
 import streamlit.components.v1 as components
 import urllib.parse
+import time
+import pickle
+import math
 # st.code("for i in range(8): foo()")
 st.set_page_config(page_icon=":ledger:",page_title="DSA-Handbook",layout="wide")
 # st.image("logo.JPG")
@@ -355,10 +358,33 @@ else:
                   createCard(sol)
 
   with tab3:
+     @st.cache_resource
+     def load_model():
+        with open("beginner_model.pkl","rb") as file:
+           model=pickle.load(file)
+        return model
      surprise,comp=st.tabs(["Let's Test","Company Wise"])
      with surprise:
-        level=st.selectbox("Select your level",("","Beginner","Intermediate","Expert"))
-        topic=st.selectbox("Select Topic",("All","Sorting","Arrays","Hashing","Binary Search","Strings","Recursion","Linked List","Bit Manipulation","Greedy","Sliding Window","Stack/Queue","Binary Tree","Binary Search Tree","Heaps","Graph","Dynamic Programming"))
+        level=st.selectbox("Select your level",("","Auto","Beginner","Intermediate","Expert"))
+        topic=st.selectbox("Select Topic",("","Sorting","Array",",Binary Search","Strings","Recursion","Linked List","Bit Manipulation","Greedy","Sliding Window","Stack","Queue","Tree","Binary Search Tree","Heaps","Graph","Dynamic Programming"))
+        df_beg=pd.read_csv('beginner_striver.csv')
+        df_beg_link=pd.read_csv('beg_link.csv')
+        if topic=="Sorting":
+           if level=="Beginner":
+              df_beg=df_beg[df_beg['Sorting']==1]
+              df_beg=df_beg.sample(n=1)
+              model=load_model()
+              est_time=model.predict(df_beg)
+              st.write(f'Estimated Max Time: {math.ceil(est_time[0])} mins for you')
+              row_level=df_beg.index[0]
+              link=df_beg_link.iloc[row_level]
+              if hasattr(link, "values"):
+                 link = link.values[0]
+              time.sleep(2)
+              st.balloons()
+              st.link_button("Embrace the Surprise",str(link))
+              
+
      with comp:
         def data_table(file):
            data=pd.read_csv(file)
