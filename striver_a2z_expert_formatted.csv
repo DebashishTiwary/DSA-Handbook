@@ -1,0 +1,57 @@
+Problem name,Multi topic tags,Difficulty,Leetcode(more priority)/geeks for geeks link of corresponding problem
+Maximum Subarray (Kadane's Algo),"Arrays, Dynamic Programming",Medium,https://leetcode.com/problems/maximum-subarray/
+Merge Two Sorted Arrays Without Extra Space,"Arrays, Two Pointers, Sorting",Hard,https://leetcode.com/problems/merge-sorted-array/
+Count Inversions in Array,"Arrays, Divide & Conquer, Merge Sort",Hard,https://www.geeksforgeeks.org/problems/inversion-of-array-1587115620/1
+Reverse Pairs,"Arrays, Divide & Conquer, Merge Sort, Segment Tree",Hard,https://leetcode.com/problems/reverse-pairs/
+Maximum Product Subarray,"Arrays, Dynamic Programming",Medium,https://leetcode.com/problems/maximum-product-subarray/
+Book Allocation Problem,"Binary Search, Arrays, Dynamic Programming",Hard,https://www.geeksforgeeks.org/problems/allocate-minimum-number-of-pages0937/1
+Split Array Largest Sum,"Binary Search, Arrays, Dynamic Programming",Hard,https://leetcode.com/problems/split-array-largest-sum/
+Painter's Partition Problem,"Binary Search, Arrays",Hard,https://www.geeksforgeeks.org/problems/the-painters-partition-problem1805/1
+Median of Two Sorted Arrays,"Binary Search, Arrays, Divide & Conquer",Hard,https://leetcode.com/problems/median-of-two-sorted-arrays/
+Longest Palindromic Substring,"Strings, Dynamic Programming, Two Pointers",Medium,https://leetcode.com/problems/longest-palindromic-substring/
+Reverse Nodes in k-Group,"Linked List, Recursion",Hard,https://leetcode.com/problems/reverse-nodes-in-k-group/
+Flattening a Linked List,"Linked List, Heap, Merge Sort",Hard,https://www.geeksforgeeks.org/problems/flattening-a-linked-list/1
+Subarrays with K Different Integers,"Sliding Window, Hash Table, Arrays",Hard,https://leetcode.com/problems/subarrays-with-k-different-integers/
+Minimum Window Substring,"Sliding Window, Hash Table, Strings",Hard,https://leetcode.com/problems/minimum-window-substring/
+Next Greater Element II,"Stack, Monotonic Stack, Arrays",Medium,https://leetcode.com/problems/next-greater-element-ii/
+Trapping Rain Water,"Stack, Two Pointers, Dynamic Programming",Hard,https://leetcode.com/problems/trapping-rain-water/
+Asteroid Collision,"Stack, Simulation",Medium,https://leetcode.com/problems/asteroid-collision/
+Sum of Subarray Minimums,"Stack, Monotonic Stack, Dynamic Programming",Medium,https://leetcode.com/problems/sum-of-subarray-minimums/
+Largest Rectangle in Histogram,"Stack, Monotonic Stack, Arrays",Hard,https://leetcode.com/problems/largest-rectangle-in-histogram/
+Sliding Window Maximum,"Queue, Monotonic Queue, Heap, Sliding Window",Hard,https://leetcode.com/problems/sliding-window-maximum/
+Jump Game,"Greedy, Dynamic Programming",Medium,https://leetcode.com/problems/jump-game/
+Jump Game II,"Greedy, Dynamic Programming",Medium,https://leetcode.com/problems/jump-game-ii/
+Non-overlapping Intervals,"Greedy, Sorting, Dynamic Programming",Medium,https://leetcode.com/problems/non-overlapping-intervals/
+Binary Tree Maximum Path Sum,"Trees, Binary Tree, Dynamic Programming",Hard,https://leetcode.com/problems/binary-tree-maximum-path-sum/
+Number of Islands,"Graphs, BFS, DFS, Union Find",Medium,https://leetcode.com/problems/number-of-islands/
+Rotting Oranges,"Graphs, BFS, Matrix",Medium,https://leetcode.com/problems/rotting-oranges/
+0/1 Matrix (Distance of nearest cell having 1),"Graphs, BFS, Matrix",Medium,https://leetcode.com/problems/01-matrix/
+Surrounded Regions (Replace O's with X's),"Graphs, BFS, DFS, Matrix",Medium,https://leetcode.com/problems/surrounded-regions/
+Course Schedule I,"Graphs, Topological Sort, BFS, DFS",Medium,https://leetcode.com/problems/course-schedule/
+Course Schedule II,"Graphs, Topological Sort, BFS, DFS",Medium,https://leetcode.com/problems/course-schedule-ii/
+Dijkstra Algorithm,"Graphs, Shortest Path, Heap",Medium,https://www.geeksforgeeks.org/problems/implementing-dijkstra-set-1-adjacency-matrix/1
+Bellman Ford Algorithm,"Graphs, Shortest Path, Dynamic Programming",Medium,https://www.geeksforgeeks.org/problems/distance-from-the-source-bellman-ford-algorithm/1
+Floyd Warshall Algorithm,"Graphs, Shortest Path, Dynamic Programming",Medium,https://www.geeksforgeeks.org/problems/implementing-floyd-warshall2042/1
+Disjoint Set (Union-Find) Implementation,"Graphs, Disjoint Set",Medium,https://www.geeksforgeeks.org/problems/disjoint-set-union-find/1
+Kruskal's Algorithm for Minimum Spanning Tree,"Graphs, Minimum Spanning Tree, Disjoint Set",Medium,https://www.geeksforgeeks.org/problems/minimum-spanning-tree/1
+Word Ladder I,"Graphs, BFS, Hash Table",Hard,https://leetcode.com/problems/word-ladder/
+Bridges in Graph (Tarjan's Algorithm),"Graphs, DFS, Tarjan Algorithm",Hard,https://leetcode.com/problems/critical-connections-in-a-network/
+House Robber,"Dynamic Programming, Arrays",Medium,https://leetcode.com/problems/house-robber/
+House Robber II,"Dynamic Programming, Arrays",Medium,https://leetcode.com/problems/house-robber-ii/
+Ninja's Training,"Dynamic Programming, Grid DP",Medium,https://www.geeksforgeeks.org/problems/geeks-training/1
+Unique Paths,"Dynamic Programming, Combinatorics",Medium,https://leetcode.com/problems/unique-paths/
+Minimum Path Sum,"Dynamic Programming, Matrix",Medium,https://leetcode.com/problems/minimum-path-sum/
+Subset Sum Equal To K,"Dynamic Programming, Recursion",Medium,https://www.geeksforgeeks.org/problems/subset-sum-problem1611/1
+0/1 Knapsack Problem,Dynamic Programming,Medium,https://www.geeksforgeeks.org/problems/0-1-knapsack-problem0917/1
+Coin Change,"Dynamic Programming, BFS",Medium,https://leetcode.com/problems/coin-change/
+Target Sum,"Dynamic Programming, Backtracking",Medium,https://leetcode.com/problems/target-sum/
+Longest Common Subsequence,"Dynamic Programming, Strings",Medium,https://leetcode.com/problems/longest-common-subsequence/
+Longest Increasing Subsequence,"Dynamic Programming, Binary Search",Medium,https://leetcode.com/problems/longest-increasing-subsequence/
+Edit Distance,"Dynamic Programming, Strings",Hard,https://leetcode.com/problems/edit-distance/
+Matrix Chain Multiplication,"Dynamic Programming, Matrix DP",Hard,https://www.geeksforgeeks.org/problems/matrix-chain-multiplication0303/1
+Partition Array for Maximum Sum,"Dynamic Programming, Arrays",Medium,https://leetcode.com/problems/partition-array-for-maximum-sum/
+Implement Trie (Prefix Tree),"Trie, Design, Hash Table",Medium,https://leetcode.com/problems/implement-trie-prefix-tree/
+Implement Trie II (Count Words & Prefixes),"Trie, Design",Medium,https://www.geeksforgeeks.org/problems/trie-insert-and-search0651/1
+Longest String with All Prefixes,"Trie, Strings",Medium,https://www.geeksforgeeks.org/problems/longest-string-with-all-prefixes/1
+Number of Distinct Substrings in a String,"Trie, Strings",Medium,https://www.geeksforgeeks.org/problems/count-of-distinct-substrings/1
+Maximum XOR of Two Numbers in an Array,"Trie, Bit Manipulation",Medium,https://leetcode.com/problems/maximum-xor-of-two-numbers-in-an-array/

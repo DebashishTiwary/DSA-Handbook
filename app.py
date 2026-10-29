@@ -356,6 +356,9 @@ else:
 
   with tab3:
      surprise,comp=st.tabs(["Let's Test","Company Wise"])
+     with surprise:
+        level=st.selectbox("Select your level",("","Beginner","Intermediate","Expert"))
+        topic=st.selectbox("Select Topic",("All","Sorting","Arrays","Hashing","Binary Search","Strings","Recursion","Linked List","Bit Manipulation","Greedy","Sliding Window","Stack/Queue","Binary Tree","Binary Search Tree","Heaps","Graph","Dynamic Programming"))
      with comp:
         def data_table(file):
            data=pd.read_csv(file)
@@ -391,6 +394,7 @@ else:
             hide_index=True,
             width="stretch",)
         company=st.selectbox("Select your destination",("Acko","Apple","Atlassian","Blinkit","Google"))
+        
         val=f'{company}.csv'
         data_table(val)
      

@@ -1,0 +1,141 @@
+Problem name,Multi topic tags,Difficulty,Leetcode(more priority)/geeks for geeks link of corresponding problem
+Reverse an Array,"Arrays, Two Pointers, Recursion",Easy,https://leetcode.com/problems/reverse-string/
+Count Frequency of Elements,"Arrays, Hashing",Easy,https://www.geeksforgeeks.org/problems/frequency-of-array-elements-1587115620/1
+Highest / Lowest Frequency Element,"Arrays, Hashing",Easy,https://leetcode.com/problems/top-k-frequent-elements/
+Selection Sort,"Sorting, Arrays",Easy,https://www.geeksforgeeks.org/problems/selection-sort/1
+Bubble Sort,"Sorting, Arrays",Easy,https://www.geeksforgeeks.org/problems/bubble-sort/1
+Insertion Sort,"Sorting, Arrays",Easy,https://www.geeksforgeeks.org/problems/insertion-sort/1
+Merge Sort,"Sorting, Divide & Conquer, Recursion",Medium,https://www.geeksforgeeks.org/problems/merge-sort/1
+Quick Sort,"Sorting, Divide & Conquer, Recursion",Medium,https://www.geeksforgeeks.org/problems/quick-sort/1
+Largest Element in Array,Arrays,Easy,https://www.geeksforgeeks.org/problems/largest-element-in-array2510/1
+Second Largest Element in Array,Arrays,Easy,https://www.geeksforgeeks.org/problems/second-largest3735/1
+Check if Array is Sorted and Rotated,Arrays,Easy,https://leetcode.com/problems/check-if-array-is-sorted-and-rotated/
+Remove Duplicates from Sorted Array,"Arrays, Two Pointers",Easy,https://leetcode.com/problems/remove-duplicates-from-sorted-array/
+Rotate Array by K Steps,"Arrays, Two Pointers",Medium,https://leetcode.com/problems/rotate-array/
+Move Zeroes to End,"Arrays, Two Pointers",Easy,https://leetcode.com/problems/move-zeroes/
+Linear Search,"Arrays, Searching",Easy,https://www.geeksforgeeks.org/problems/who-will-win-1587115621/1
+Union of Two Sorted Arrays,"Arrays, Two Pointers",Easy,https://www.geeksforgeeks.org/problems/union-of-two-sorted-arrays-1587115621/1
+Find Missing Number in Array,"Arrays, Math, Bit Manipulation",Easy,https://leetcode.com/problems/missing-number/
+Max Consecutive Ones,Arrays,Easy,https://leetcode.com/problems/max-consecutive-ones/
+Single Number,"Arrays, Bit Manipulation",Easy,https://leetcode.com/problems/single-number/
+Longest Subarray with Sum K,"Arrays, Sliding Window, Hashing, Two Pointers",Medium,https://www.geeksforgeeks.org/problems/longest-sub-array-with-sum-k0809/1
+Two Sum,"Arrays, Hashing, Two Pointers",Easy,https://leetcode.com/problems/two-sum/
+"Sort Colors (0s, 1s, 2s)","Arrays, Two Pointers, Sorting",Medium,https://leetcode.com/problems/sort-colors/
+Majority Element (N/2 times),"Arrays, Hash Table, Counting",Easy,https://leetcode.com/problems/majority-element/
+Maximum Subarray (Kadane's Algo),"Arrays, Dynamic Programming",Medium,https://leetcode.com/problems/maximum-subarray/
+Best Time to Buy and Sell Stock,"Arrays, Dynamic Programming",Easy,https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
+Rearrange Array Elements by Sign,"Arrays, Two Pointers",Medium,https://leetcode.com/problems/rearrange-array-elements-by-sign/
+Next Permutation,"Arrays, Two Pointers",Medium,https://leetcode.com/problems/next-permutation/
+Leaders in an Array,Arrays,Easy,https://www.geeksforgeeks.org/problems/leaders-in-an-array-1587115620/1
+Longest Consecutive Sequence,"Arrays, Hash Table, Union Find",Medium,https://leetcode.com/problems/longest-consecutive-sequence/
+Set Matrix Zeroes,"Arrays, Matrix, Hash Table",Medium,https://leetcode.com/problems/set-matrix-zeroes/
+Rotate Image / Matrix by 90 Degrees,"Arrays, Matrix, Math",Medium,https://leetcode.com/problems/rotate-image/
+Spiral Matrix,"Arrays, Matrix, Simulation",Medium,https://leetcode.com/problems/spiral-matrix/
+Subarray Sum Equals K,"Arrays, Hash Table, Prefix Sum",Medium,https://leetcode.com/problems/subarray-sum-equals-k/
+Pascal's Triangle,"Arrays, Dynamic Programming, Math",Easy,https://leetcode.com/problems/pascals-triangle/
+Majority Element II (N/3 times),"Arrays, Hash Table, Counting",Medium,https://leetcode.com/problems/majority-element-ii/
+3Sum,"Arrays, Two Pointers, Sorting",Medium,https://leetcode.com/problems/3sum/
+4Sum,"Arrays, Two Pointers, Sorting",Medium,https://leetcode.com/problems/4sum/
+4Sum II,"Arrays, Hash Table",Medium,https://leetcode.com/problems/4sum-ii/
+Merge Overlapping Subintervals,"Arrays, Sorting",Medium,https://leetcode.com/problems/merge-intervals/
+Find Missing and Repeating Number,"Arrays, Math, Bit Manipulation",Medium,https://www.geeksforgeeks.org/problems/find-missing-and-repeating2512/1
+Maximum Product Subarray,"Arrays, Dynamic Programming",Medium,https://leetcode.com/problems/maximum-product-subarray/
+Binary Search to find X in sorted array,"Binary Search, Arrays",Easy,https://leetcode.com/problems/binary-search/
+Lower Bound and Upper Bound,"Binary Search, Arrays",Easy,https://www.geeksforgeeks.org/problems/floor-in-a-sorted-array-1587115620/1
+Search Insert Position,"Binary Search, Arrays",Easy,https://leetcode.com/problems/search-insert-position/
+First and Last Position of Element in Sorted Array,"Binary Search, Arrays",Medium,https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/
+Search in Rotated Sorted Array I,"Binary Search, Arrays",Medium,https://leetcode.com/problems/search-in-rotated-sorted-array/
+Search in Rotated Sorted Array II,"Binary Search, Arrays",Medium,https://leetcode.com/problems/search-in-rotated-sorted-array-ii/
+Find Minimum in Rotated Sorted Array,"Binary Search, Arrays",Medium,https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/
+Single Element in a Sorted Array,"Binary Search, Arrays",Medium,https://leetcode.com/problems/single-element-in-a-sorted-array/
+Find Peak Element,"Binary Search, Arrays",Medium,https://leetcode.com/problems/find-peak-element/
+Square Root of a Number,"Binary Search, Math",Easy,https://leetcode.com/problems/sqrtx/
+Find Nth Root of a Number,"Binary Search, Math",Medium,https://www.geeksforgeeks.org/problems/find-nth-root-of-m5843/1
+Koko Eating Bananas,"Binary Search, Arrays",Medium,https://leetcode.com/problems/koko-eating-bananas/
+Minimum Days to Make M Bouquets,"Binary Search, Arrays",Medium,https://leetcode.com/problems/minimum-number-of-days-to-make-m-bouquets/
+Find Smallest Divisor Given a Threshold,"Binary Search, Arrays",Medium,https://leetcode.com/problems/find-the-smallest-divisor-given-a-threshold/
+Capacity To Ship Packages Within D Days,"Binary Search, Arrays",Medium,https://leetcode.com/problems/capacity-to-ship-packages-within-d-days/
+Kth Missing Positive Number,"Binary Search, Arrays",Easy,https://leetcode.com/problems/kth-missing-positive-number/
+Aggressive Cows,"Binary Search, Arrays, Greedy",Medium,https://www.geeksforgeeks.org/problems/aggressive-cows/1
+K-th Element of Two Sorted Arrays,"Binary Search, Arrays, Divide & Conquer",Medium,https://www.geeksforgeeks.org/problems/k-th-element-of-two-sorted-array1317/1
+Remove Outermost Parentheses,"Strings, Stack",Easy,https://leetcode.com/problems/remove-outermost-parentheses/
+Reverse Words in a String,"Strings, Two Pointers",Medium,https://leetcode.com/problems/reverse-words-in-a-string/
+Sort Characters By Frequency,"Strings, Hash Table, Sorting, Heap",Medium,https://leetcode.com/problems/sort-characters-by-frequency/
+Maximum Nesting Depth of Parentheses,"Strings, Stack",Easy,https://leetcode.com/problems/maximum-nesting-depth-of-the-parentheses/
+String to Integer (atoi),"Strings, Conversion",Medium,https://leetcode.com/problems/string-to-integer-atoi/
+Count Number of Substrings with K Distinct Characters,"Strings, Sliding Window, Two Pointers",Medium,https://www.geeksforgeeks.org/problems/count-number-of-substrings4528/1
+Longest Palindromic Substring,"Strings, Dynamic Programming, Two Pointers",Medium,https://leetcode.com/problems/longest-palindromic-substring/
+Sum of Beauty of All Substrings,"Strings, Hash Table",Medium,https://leetcode.com/problems/sum-of-beauty-of-all-substrings/
+Delete Node in a Linked List,Linked List,Medium,https://leetcode.com/problems/delete-node-in-a-linked-list/
+Find Starting Point of Loop in Linked List,"Linked List, Two Pointers, Hash Table",Medium,https://leetcode.com/problems/linked-list-cycle-ii/
+Odd Even Linked List,Linked List,Medium,https://leetcode.com/problems/odd-even-linked-list/
+Remove Nth Node From End of List,"Linked List, Two Pointers",Medium,https://leetcode.com/problems/remove-nth-node-from-end-of-list/
+Delete Middle Node of Linked List,"Linked List, Two Pointers",Medium,https://leetcode.com/problems/delete-the-middle-node-of-a-linked-list/
+Sort Linked List,"Linked List, Divide & Conquer, Merge Sort",Medium,https://leetcode.com/problems/sort-list/
+Add 1 to a Number Represented as Linked List,"Linked List, Recursion",Medium,https://www.geeksforgeeks.org/problems/add-1-to-a-number-represented-as-linked-list/1
+Add Two Numbers in Linked List,"Linked List, Math",Medium,https://leetcode.com/problems/add-two-numbers/
+Reverse Nodes in k-Group,"Linked List, Recursion",Hard,https://leetcode.com/problems/reverse-nodes-in-k-group/
+Rotate List,"Linked List, Two Pointers",Medium,https://leetcode.com/problems/rotate-list/
+Copy List with Random Pointer,"Linked List, Hash Table",Medium,https://leetcode.com/problems/copy-list-with-random-pointer/
+Longest Substring Without Repeating Characters,"Sliding Window, Hash Table, Strings",Medium,https://leetcode.com/problems/longest-substring-without-repeating-characters/
+Max Consecutive Ones III,"Sliding Window, Two Pointers, Arrays",Medium,https://leetcode.com/problems/max-consecutive-ones-iii/
+Fruit Into Baskets,"Sliding Window, Arrays, Hash Table",Medium,https://leetcode.com/problems/fruit-into-baskets/
+Longest Repeating Character Replacement,"Sliding Window, Strings, Hash Table",Medium,https://leetcode.com/problems/longest-repeating-character-replacement/
+Binary Subarrays With Sum,"Sliding Window, Prefix Sum, Hash Table",Medium,https://leetcode.com/problems/binary-subarrays-with-sum/
+Valid Parentheses,"Stack, Strings",Easy,https://leetcode.com/problems/valid-parentheses/
+Implement Queue using Stacks,"Stack, Queue, Design",Easy,https://leetcode.com/problems/implement-queue-using-stacks/
+Implement Stack using Queues,"Stack, Queue, Design",Easy,https://leetcode.com/problems/implement-stack-using-queues/
+Next Greater Element I,"Stack, Monotonic Stack, Arrays",Easy,https://leetcode.com/problems/next-greater-element-i/
+Next Greater Element II,"Stack, Monotonic Stack, Arrays",Medium,https://leetcode.com/problems/next-greater-element-ii/
+Trapping Rain Water,"Stack, Two Pointers, Dynamic Programming",Hard,https://leetcode.com/problems/trapping-rain-water/
+Asteroid Collision,"Stack, Simulation",Medium,https://leetcode.com/problems/asteroid-collision/
+Sum of Subarray Minimums,"Stack, Monotonic Stack, Dynamic Programming",Medium,https://leetcode.com/problems/sum-of-subarray-minimums/
+Sliding Window Maximum,"Queue, Monotonic Queue, Heap, Sliding Window",Hard,https://leetcode.com/problems/sliding-window-maximum/
+Assign Cookies,"Greedy, Arrays, Two Pointers",Easy,https://leetcode.com/problems/assign-cookies/
+Fractional Knapsack,"Greedy, Sorting",Medium,https://www.geeksforgeeks.org/problems/fractional-knapsack-1587115620/1
+Lemonade Change,"Greedy, Arrays",Easy,https://leetcode.com/problems/lemonade-change/
+Jump Game,"Greedy, Dynamic Programming",Medium,https://leetcode.com/problems/jump-game/
+Jump Game II,"Greedy, Dynamic Programming",Medium,https://leetcode.com/problems/jump-game-ii/
+N Meetings in One Room,"Greedy, Sorting",Medium,https://www.geeksforgeeks.org/problems/n-meetings-in-one-room-1587115620/1
+Non-overlapping Intervals,"Greedy, Sorting, Dynamic Programming",Medium,https://leetcode.com/problems/non-overlapping-intervals/
+Binary Tree Inorder Traversal,"Trees, Binary Tree, Depth-First Search",Easy,https://leetcode.com/problems/binary-tree-inorder-traversal/
+Binary Tree Preorder Traversal,"Trees, Binary Tree, Depth-First Search",Easy,https://leetcode.com/problems/binary-tree-preorder-traversal/
+Binary Tree Postorder Traversal,"Trees, Binary Tree, Depth-First Search",Easy,https://leetcode.com/problems/binary-tree-postorder-traversal/
+Binary Tree Level Order Traversal,"Trees, Binary Tree, Breadth-First Search",Medium,https://leetcode.com/problems/binary-tree-level-order-traversal/
+Maximum Depth of Binary Tree,"Trees, Binary Tree, Depth-First Search",Easy,https://leetcode.com/problems/maximum-depth-of-binary-tree/
+Balanced Binary Tree,"Trees, Binary Tree, Depth-First Search",Easy,https://leetcode.com/problems/balanced-binary-tree/
+Diameter of Binary Tree,"Trees, Binary Tree, Depth-First Search",Easy,https://leetcode.com/problems/diameter-of-binary-tree/
+Same Tree,"Trees, Binary Tree, Depth-First Search",Easy,https://leetcode.com/problems/same-tree/
+Lowest Common Ancestor of a Binary Tree,"Trees, Binary Tree, Depth-First Search",Medium,https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/
+Search in a Binary Search Tree,"Trees, Binary Search Tree",Easy,https://leetcode.com/problems/search-in-a-binary-search-tree/
+Validate Binary Search Tree,"Trees, Binary Search Tree, Depth-First Search",Medium,https://leetcode.com/problems/validate-binary-search-tree/
+Kth Smallest Element in a BST,"Trees, Binary Search Tree, Depth-First Search",Medium,https://leetcode.com/problems/kth-smallest-element-in-a-bst/
+Number of Islands,"Graphs, BFS, DFS, Union Find",Medium,https://leetcode.com/problems/number-of-islands/
+Rotting Oranges,"Graphs, BFS, Matrix",Medium,https://leetcode.com/problems/rotting-oranges/
+0/1 Matrix (Distance of nearest cell having 1),"Graphs, BFS, Matrix",Medium,https://leetcode.com/problems/01-matrix/
+Surrounded Regions (Replace O's with X's),"Graphs, BFS, DFS, Matrix",Medium,https://leetcode.com/problems/surrounded-regions/
+Course Schedule I,"Graphs, Topological Sort, BFS, DFS",Medium,https://leetcode.com/problems/course-schedule/
+Course Schedule II,"Graphs, Topological Sort, BFS, DFS",Medium,https://leetcode.com/problems/course-schedule-ii/
+Dijkstra Algorithm,"Graphs, Shortest Path, Heap",Medium,https://www.geeksforgeeks.org/problems/implementing-dijkstra-set-1-adjacency-matrix/1
+Bellman Ford Algorithm,"Graphs, Shortest Path, Dynamic Programming",Medium,https://www.geeksforgeeks.org/problems/distance-from-the-source-bellman-ford-algorithm/1
+Floyd Warshall Algorithm,"Graphs, Shortest Path, Dynamic Programming",Medium,https://www.geeksforgeeks.org/problems/implementing-floyd-warshall2042/1
+Disjoint Set (Union-Find) Implementation,"Graphs, Disjoint Set",Medium,https://www.geeksforgeeks.org/problems/disjoint-set-union-find/1
+Kruskal's Algorithm for Minimum Spanning Tree,"Graphs, Minimum Spanning Tree, Disjoint Set",Medium,https://www.geeksforgeeks.org/problems/minimum-spanning-tree/1
+Word Ladder I,"Graphs, BFS, Hash Table",Hard,https://leetcode.com/problems/word-ladder/
+House Robber,"Dynamic Programming, Arrays",Medium,https://leetcode.com/problems/house-robber/
+House Robber II,"Dynamic Programming, Arrays",Medium,https://leetcode.com/problems/house-robber-ii/
+Ninja's Training,"Dynamic Programming, Grid DP",Medium,https://www.geeksforgeeks.org/problems/geeks-training/1
+Unique Paths,"Dynamic Programming, Combinatorics",Medium,https://leetcode.com/problems/unique-paths/
+Minimum Path Sum,"Dynamic Programming, Matrix",Medium,https://leetcode.com/problems/minimum-path-sum/
+Subset Sum Equal To K,"Dynamic Programming, Recursion",Medium,https://www.geeksforgeeks.org/problems/subset-sum-problem1611/1
+0/1 Knapsack Problem,Dynamic Programming,Medium,https://www.geeksforgeeks.org/problems/0-1-knapsack-problem0917/1
+Coin Change,"Dynamic Programming, BFS",Medium,https://leetcode.com/problems/coin-change/
+Target Sum,"Dynamic Programming, Backtracking",Medium,https://leetcode.com/problems/target-sum/
+Longest Common Subsequence,"Dynamic Programming, Strings",Medium,https://leetcode.com/problems/longest-common-subsequence/
+Longest Increasing Subsequence,"Dynamic Programming, Binary Search",Medium,https://leetcode.com/problems/longest-increasing-subsequence/
+Partition Array for Maximum Sum,"Dynamic Programming, Arrays",Medium,https://leetcode.com/problems/partition-array-for-maximum-sum/
+Implement Trie (Prefix Tree),"Trie, Design, Hash Table",Medium,https://leetcode.com/problems/implement-trie-prefix-tree/
+Implement Trie II (Count Words & Prefixes),"Trie, Design",Medium,https://www.geeksforgeeks.org/problems/trie-insert-and-search0651/1
+Longest String with All Prefixes,"Trie, Strings",Medium,https://www.geeksforgeeks.org/problems/longest-string-with-all-prefixes/1
+Number of Distinct Substrings in a String,"Trie, Strings",Medium,https://www.geeksforgeeks.org/problems/count-of-distinct-substrings/1
+Maximum XOR of Two Numbers in an Array,"Trie, Bit Manipulation",Medium,https://leetcode.com/problems/maximum-xor-of-two-numbers-in-an-array/
