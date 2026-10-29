@@ -12,7 +12,6 @@ import pickle
 import math
 # st.code("for i in range(8): foo()")
 st.set_page_config(page_icon=":ledger:",page_title="DSA-Handbook",layout="wide")
-# st.image("logo.JPG")
 custom_html = """
 <div style="display: flex; align-items: center; padding: 10px; border-radius: 10px; width: 100%; border-bottom: 2px solid #ff5733;"> 
     <div style="flex-grow: 1; text-align: center; margin-right: 60px; border:1px #000080;backgroud-color:red"> 
@@ -22,7 +21,7 @@ custom_html = """
 </div>
 """
 st.markdown(custom_html, unsafe_allow_html=True)
-
+st.image('bcgImg.jpg')
 @st.cache_resource
 def init_connections():
   client_db = pymongo.MongoClient(st.secrets["mongo"]["uri"])
@@ -272,9 +271,9 @@ else:
                                                  {sol['code']}
                                                  
                                                  Provide:
-                                                 1.Give approach as if you are explaning to layman and it should be clear idea.(more focus)
+                                                 1.Give approach used in code as if you are explaning to layman and it should be clear idea.(more focus)
                                                  2. Very Brief explanation of the code
-                                                 3. Time and Space Complexity.
+                                                 3. Time and Space Complexity of the code provided.
                                                  4.No dry run required
                                                  5.All in higlish and understandable to layman
                                                  6.No followup question
@@ -283,7 +282,7 @@ else:
                                                  """
                                              safe_prompt = urllib.parse.quote(encoded_prompt)
                                              claude_url = f"https://claude.ai/new?q={safe_prompt}"
-                                             st.link_button("Get my solution",claude_url)
+                                             st.link_button("AI Help!!",claude_url)
                                           with col_save:
                                              if st.button("Save Changes", key=f"save_{sol_id_str}"):
                                                 db.solutions.update_one(
@@ -365,24 +364,79 @@ else:
         return model
      surprise,comp=st.tabs(["Let's Test","Company Wise"])
      with surprise:
+        def beg_challenge(df_beg):
+         df_beg=df_beg.sample(n=1)             
+         row_level=df_beg.index[0]
+         link=df_beg_link.iloc[row_level]
+         if hasattr(link, "values"):
+            link = link.values[0]
+         time.sleep(2)
+         st.balloons()
+         model=load_model()
+         est_time=model.predict(df_beg)
+         st.write(f'Estimated Max Time: {math.ceil(est_time[0])} mins for you')
+         st.link_button("Embrace the Surprise",str(link))
+        
         level=st.selectbox("Select your level",("","Auto","Beginner","Intermediate","Expert"))
-        topic=st.selectbox("Select Topic",("","Sorting","Array",",Binary Search","Strings","Recursion","Linked List","Bit Manipulation","Greedy","Sliding Window","Stack","Queue","Tree","Binary Search Tree","Heaps","Graph","Dynamic Programming"))
+        topic=st.selectbox("Select Topic",("","Sorting","Array","Binary Search","Strings","Recursion","Linked List","Bit Manipulation","Greedy","Sliding Window","Stack","Queue","Tree","Binary Search Tree","Graph","Dynamic Programming","Other Patterns"))
         df_beg=pd.read_csv('beginner_striver.csv')
         df_beg_link=pd.read_csv('beg_link.csv')
         if topic=="Sorting":
            if level=="Beginner":
               df_beg=df_beg[df_beg['Sorting']==1]
-              df_beg=df_beg.sample(n=1)
-              model=load_model()
-              est_time=model.predict(df_beg)
-              st.write(f'Estimated Max Time: {math.ceil(est_time[0])} mins for you')
-              row_level=df_beg.index[0]
-              link=df_beg_link.iloc[row_level]
-              if hasattr(link, "values"):
-                 link = link.values[0]
-              time.sleep(2)
-              st.balloons()
-              st.link_button("Embrace the Surprise",str(link))
+              beg_challenge(df_beg)
+        elif topic=="Array":
+           if level=="Beginner":
+              df_beg=df_beg[df_beg['Array']==1]
+              beg_challenge(df_beg)
+        elif topic=="Dynamic Programming":
+           if level=="Beginner":
+              df_beg=df_beg[(df_beg['Dynamic Programming']==1)|(df_beg['Memoization']==1)|(df_beg['Backtracking']==1)]
+              beg_challenge(df_beg)
+        elif topic=="Binary Search":
+           if level=="Beginner":
+              df_beg=df_beg[df_beg['Binary Search']==1]
+              beg_challenge(df_beg)
+        elif topic=="Stack":
+           if level=="Beginner":
+              df_beg=df_beg[df_beg['Monotonic Stack']==1]
+              beg_challenge(df_beg)
+        elif topic=="Queue":
+           if level=="Beginner":
+              df_beg=df_beg[df_beg['Heap (Priority Queue)']==1]
+              beg_challenge(df_beg)
+        elif topic=="Strings":
+           df_beg=df_beg[(df_beg['String']==1)|(df_beg['String Matching']==1)]
+           beg_challenge(df_beg)
+        elif topic=="Graph":
+           df_beg=df_beg[(df_beg['Breadth-First Search']==1)|(df_beg['Depth-First Search']==1)|(df_beg['Graph']==1)|(df_beg['Topological Sort']==1)]
+           beg_challenge(df_beg)
+        elif topic=="Recursion":
+           df_beg=df_beg[df_beg['Recursion']==1]  
+           beg_challenge(df_beg)
+        elif topic=="Tree":
+           df_beg=df_beg[(df_beg['Binary Tree']==1)|(df_beg['Tree']==1)]
+           beg_challenge(df_beg)
+        elif topic=="Binary Search Tree":
+           df_beg=df_beg[df_beg['Binary Search Tree']==1]
+           beg_challenge(df_beg)
+        elif topic=="Linked List":
+           df_beg=df_beg[df_beg['Linked List']==1]
+           beg_challenge(df_beg)
+        elif topic=="Greedy":
+           df_beg=df_beg[df_beg['Greedy']==1]
+           beg_challenge(df_beg)
+        elif topic=="Sliding Window":
+           df_beg=df_beg[df_beg['Sliding Window']==1]
+           beg_challenge(df_beg)
+        elif topic=="Bit Manipulation":
+           df_beg=df_beg[df_beg['Bit Manipulation']==1]
+           beg_challenge(df_beg)
+        elif topic=="Other Patterns":
+           df_beg=df_beg[(df_beg['Two Pointers']==1)|(df_beg['Prefix Sum']==1)|(df_beg['Union']==1)]
+           beg_challenge(df_beg)
+     
+              
               
 
      with comp:
@@ -408,7 +462,7 @@ else:
                                 ),
                 "Link": st.column_config.LinkColumn(
                     label="Link",
-                    display_text="Conqure IT",
+                    display_text="Conqure it",
                     width="medium",
                 ),
                 "Topics": st.column_config.TextColumn(
@@ -423,6 +477,23 @@ else:
         
         val=f'{company}.csv'
         data_table(val)
+with st.bottom:
+   LINKEDIN_URL="https://www.linkedin.com/in/debashishtiwary/"
+   _, center_col, _ = st.columns([1, 2, 1])
+    
+   with center_col:
+        # 2. Combine the link and the text into a single centered HTML block
+        st.markdown(
+            f"""
+            <div style="text-align: center; font-size: 14px; color: #808495;">
+                <a href="{LINKEDIN_URL}" target="_blank" style="color: #0077b5; text-decoration: none; font-weight: bold;">LinkedIn</a>
+                &nbsp;·&nbsp;
+                <span>Made with 🧡 from INDIA· All rights reserved</span>
+            </div>
+            """, 
+            unsafe_allow_html=True
+        )
+
      
                
                   
