@@ -178,6 +178,7 @@ else:
         
                        st.error("Please provide both the problem link and your code.")
         user_solutions=list(db.solutions.find({"author_email":st.user.email}))
+        
         user_solutions_array=[]
         user_solutions_sorting=[]
         user_solutions_hashing=[]
@@ -377,7 +378,7 @@ else:
          st.write(f'Estimated Max Time: {math.ceil(est_time[0])} mins for you')
          st.link_button("Embrace the Surprise",str(link))
         
-        level=st.selectbox("Select your level",("","Auto","Beginner","Intermediate","Expert"))
+        level=st.selectbox("Select your level",("","Saved Sols","Beginner","Intermediate","Expert"))
         topic=st.selectbox("Select Topic",("","Sorting","Array","Binary Search","Strings","Recursion","Linked List","Bit Manipulation","Greedy","Sliding Window","Stack","Queue","Tree","Binary Search Tree","Graph","Dynamic Programming","Other Patterns"))
         df_beg=pd.read_csv('beginner_striver.csv')
         df_beg_link=pd.read_csv('beg_link.csv')
