@@ -59,7 +59,8 @@ def generate_code_explanation(problem_title, code, language):
     response = client.models.generate_content(model="gemini-3.8-flash",contents=prompt)
     return response.text
   except Exception as e:
-    return f"Your friend is sick buddy!:( : {e}"
+    print(e)
+    return f"Your friend is sick buddy!:( Please take AI-help in Edit Explanation."
 #contests
 def convert2IST(timestamp):
   seconds=timestamp/1000
@@ -81,6 +82,7 @@ else:
 
   tab1,tab2,tab3=st.tabs(["Upcomig Contests","My Solutions","Gymkhana"])
   with tab1:
+   try:
     @st.cache_data(ttl=3600)
     def getprocesseddata():
       header={
@@ -129,6 +131,9 @@ else:
             hide_index=True,
             width="stretch",
         )
+   except Exception as e:
+      st.write("Please try in some time!")
+      # print(e)
 
 
 
@@ -489,20 +494,29 @@ else:
         data_table(val)
 with st.bottom:
    LINKEDIN_URL="https://www.linkedin.com/in/debashishtiwary/"
+   Github="https://github.com/DebashishTiwary"
    _, center_col, _ = st.columns([1, 2, 1])
     
    with center_col:
         # 2. Combine the link and the text into a single centered HTML block
         st.markdown(
-            f"""
-            <div style="text-align: center; font-size: 14px; color: #808495;">
-                <a href="{LINKEDIN_URL}" target="_blank" style="color: #0077b5; text-decoration: none; font-weight: bold;">LinkedIn</a>
-                &nbsp;·&nbsp;
-                <span>Made with 🧡 from INDIA· All rights reserved</span>
-            </div>
-            """, 
-            unsafe_allow_html=True
-        )
+    f"""
+    <div style="text-align: center; font-size: 14px; color: #808495;">
+        <a href="{Github}" target="_blank" style="color: #FFFF00; text-decoration: none; font-weight: bold;">Github</a>
+        &nbsp;·&nbsp;
+        <a href="{LINKEDIN_URL}" target="_blank" style="color: #0077b5; text-decoration: none; font-weight: bold;">LinkedIn</a>
+        &nbsp;·&nbsp;
+        <span>Made with 🧡 from 
+            <span style="font-weight: bold;">
+                <span style="color: #FF9933;">IN</span><span style="color: #FFFFFF; text-decoration: line-through #000080; text-decoration-thickness: 2px;">D</span><span style="color: #138808;">IA</span>
+            </span>
+            · All rights reserved
+        </span>
+    </div>
+    """, 
+    unsafe_allow_html=True
+)
+
 
      
                
