@@ -86,6 +86,7 @@ else:
     @st.cache_data(ttl=3600)
     def getprocesseddata():
       header={
+         # without headers it can Sir katey ka aatank
   "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 }
       data=requests.get("https://competeapi.vercel.app/contests/upcoming/",headers=header).json()
@@ -365,91 +366,111 @@ else:
 
   with tab3:
      @st.cache_resource
-     def load_model():
+     def load_model_beg():
         with open("beginner_model.pkl","rb") as file:
            model=pickle.load(file)
         return model
+     
+     @st.cache_resource
+     def load_model_inter():
+        with open("Intermediate_model.pkl","rb") as file:
+                   model=pickle.load(file)
+        return model
+     
+        
      surprise,comp=st.tabs(["Let's Test","Company Wise"])
      with surprise:
-        def beg_challenge(df_beg):
-         df_beg=df_beg.sample(n=1)             
-         row_level=df_beg.index[0]
-         link=df_beg_link.iloc[row_level]
+        def challenge(df,linkfile,lev):
+         df=df.sample(n=1)             
+         row_level=df.index[0]
+         link=linkfile.loc[row_level]
          if hasattr(link, "values"):
             link = link.values[0]
          time.sleep(2)
          st.balloons()
-         model=load_model()
-         est_time=model.predict(df_beg)
+         if lev=="Beginner":
+            model=load_model_beg()
+         elif lev=="Intermediate":
+            model=load_model_inter()
+         est_time=model.predict(df)
          st.write(f'Estimated Max Time: {math.ceil(est_time[0])} mins for you')
          st.link_button("Embrace the Surprise",str(link))
         
         
         level=st.selectbox("Select your level",("","Saved Solutions","Beginner","Intermediate","Expert"))
-        if level=="Saved Sols":
+        if level=="Saved Solutions":
            problem=random.randint(0,len(user_solutions))          
            time.sleep(2)
            st.link_button("Embrace the Surprise",str(user_solutions[problem]['problem_url']))
            time.sleep(1)
            st.balloons()
         else:
-         topic=st.selectbox("Select Topic",("","Sorting","Array","Binary Search","Strings","Recursion","Linked List","Bit Manipulation","Greedy","Sliding Window","Stack","Queue","Tree","Binary Search Tree","Graph","Dynamic Programming","Other Patterns"))
+         topic=st.selectbox("Select Topic",("Sorting","Array","Binary Search","Strings","Recursion","Linked List","Bit Manipulation","Greedy","Sliding Window","Stack","Queue","Tree","Binary Search Tree","Graph","Dynamic Programming","Other Patterns"))
          df_beg=pd.read_csv('beginner_striver.csv')
          df_beg_link=pd.read_csv('beg_link.csv')
+         df_inter=pd.read_csv('Intermediate_striver.csv')
+         df_inter_link=pd.read_csv('inter_link.csv')
+         df=pd.DataFrame()
+         df_link=pd.DataFrame()
+         if level=="Beginner":
+            df=df_beg
+            df_link=df_beg_link
+         elif level=="Intermediate":
+            df=df_inter
+            df_link=df_inter_link
+
          if topic=="Sorting":
-           if level=="Beginner":
-              df_beg=df_beg[df_beg['Sorting']==1]
-              beg_challenge(df_beg)
+            df=df[df['Sorting']==1]
+           
+              
          elif topic=="Array":
-           if level=="Beginner":
-              df_beg=df_beg[df_beg['Array']==1]
-              beg_challenge(df_beg)
+            df=df[df['Array']==1]
+              
          elif topic=="Dynamic Programming":
-           if level=="Beginner":
-              df_beg=df_beg[(df_beg['Dynamic Programming']==1)|(df_beg['Memoization']==1)|(df_beg['Backtracking']==1)]
-              beg_challenge(df_beg)
+            df=df[(df['Dynamic Programming']==1)|(df['Memoization']==1)|(df['Backtracking']==1)]
+              
          elif topic=="Binary Search":
-           if level=="Beginner":
-              df_beg=df_beg[df_beg['Binary Search']==1]
-              beg_challenge(df_beg)
+            df=df[df['Binary Search']==1]
+              
          elif topic=="Stack":
-           if level=="Beginner":
-              df_beg=df_beg[df_beg['Monotonic Stack']==1]
-              beg_challenge(df_beg)
+            df=df[df['Monotonic Stack']==1]
+              
          elif topic=="Queue":
-           if level=="Beginner":
-              df_beg=df_beg[df_beg['Heap (Priority Queue)']==1]
-              beg_challenge(df_beg)
+            df=df[df['Heap (Priority Queue)']==1]
+              
          elif topic=="Strings":
-           df_beg=df_beg[(df_beg['String']==1)|(df_beg['String Matching']==1)]
-           beg_challenge(df_beg)
+            df=df[(df['String']==1)|(df['String Matching']==1)]
+           
          elif topic=="Graph":
-           df_beg=df_beg[(df_beg['Breadth-First Search']==1)|(df_beg['Depth-First Search']==1)|(df_beg['Graph']==1)|(df_beg['Topological Sort']==1)]
-           beg_challenge(df_beg)
+            df=df[(df['Breadth-First Search']==1)|(df['Depth-First Search']==1)|(df['Graph']==1)|(df['Topological Sort']==1)]
+           
          elif topic=="Recursion":
-           df_beg=df_beg[df_beg['Recursion']==1]  
-           beg_challenge(df_beg)
+            df=df[df['Recursion']==1]  
+           
          elif topic=="Tree":
-           df_beg=df_beg[(df_beg['Binary Tree']==1)|(df_beg['Tree']==1)]
-           beg_challenge(df_beg)
+            df=df[(df['Binary Tree']==1)|(df['Tree']==1)]
+           
          elif topic=="Binary Search Tree":
-           df_beg=df_beg[df_beg['Binary Search Tree']==1]
-           beg_challenge(df_beg)
+           df=df[df['Binary Search Tree']==1]
+           
          elif topic=="Linked List":
-           df_beg=df_beg[df_beg['Linked List']==1]
-           beg_challenge(df_beg)
+           df=df[df['Linked List']==1]
+           
          elif topic=="Greedy":
-           df_beg=df_beg[df_beg['Greedy']==1]
-           beg_challenge(df_beg)
+           df=df[df['Greedy']==1]
+           
          elif topic=="Sliding Window":
-           df_beg=df_beg[df_beg['Sliding Window']==1]
-           beg_challenge(df_beg)
+           df=df[df['Sliding Window']==1]
+           
          elif topic=="Bit Manipulation":
-           df_beg=df_beg[df_beg['Bit Manipulation']==1]
-           beg_challenge(df_beg)
+           df=df[df['Bit Manipulation']==1]
+           
          elif topic=="Other Patterns":
-           df_beg=df_beg[(df_beg['Two Pointers']==1)|(df_beg['Prefix Sum']==1)|(df_beg['Union']==1)]
-           beg_challenge(df_beg)
+           df=df[(df['Two Pointers']==1)|(df['Prefix Sum']==1)|(df['Union']==1)]
+
+         challenge(df,df_link,level)
+         
+           
      
               
               
