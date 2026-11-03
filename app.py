@@ -14,15 +14,191 @@ import random
 # st.code("for i in range(8): foo()")
 st.set_page_config(page_icon=":ledger:",page_title="DSA-Handbook",layout="wide")
 custom_html = """
-<div style="display: flex; align-items: center; padding: 10px; border-radius: 10px; width: 100%; border-bottom: 2px solid #ff5733;"> 
-    <div style="flex-grow: 1; text-align: center; margin-right: 60px; border:1px #000080;backgroud-color:red"> 
-        <h2 style="margin: 0; padding: 0; font-family: 'Times New Roman', Times, serif;">My DSA Handbook</h2> 
-        <p style="margin: 5px 0 0 0;">Everything is an Algorithm</p> 
-    </div> 
+<style>
+    /* Container styling */
+    .dsa-header {
+        position: relative;
+        width: 100%;
+        padding: 50px 20px 60px;
+        background: radial-gradient(circle at top, #1e293b 0%, #0f172a 100%);
+        border: 1px solid #334155;
+        border-radius: 20px;
+        text-align: center;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+        margin-bottom: 40px;
+        overflow: hidden;
+    }
+
+    /* Ambient background glow behind header */
+    .dsa-header::before {
+        content: '';
+        position: absolute;
+        top: -50px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 300px;
+        height: 150px;
+        background: rgba(56, 189, 248, 0.15);
+        filter: blur(80px);
+        border-radius: 50%;
+        pointer-events: none;
+    }
+
+    /* Animated Gradient Title */
+    .dsa-title {
+        font-size: 3.6rem !important;
+        font-weight: 900 !important;
+        letter-spacing: -1px;
+        background: linear-gradient(270deg, #38bdf8, #818cf8, #c084fc, #38bdf8);
+        background-size: 300% 300%;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 40px !important;
+        animation: gradient-shift 6s ease infinite;
+    }
+
+    @keyframes gradient-shift {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+
+    /* Cycle Flow Layout */
+    .cycle-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 12px;
+        max-width: 1100px;
+        margin: 0 auto;
+        flex-wrap: wrap;
+        position: relative;
+    }
+
+    /* Step Cards */
+    .cycle-card {
+        background: rgba(30, 41, 59, 0.8);
+        backdrop-filter: blur(10px);
+        border: 1px solid #334155;
+        padding: 20px 24px;
+        border-radius: 16px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: #f1f5f9;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-width: 180px;
+    }
+
+    /* Number Badge on Cards */
+    .step-badge {
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 1px;
+        color: #38bdf8;
+        background: rgba(56, 189, 248, 0.1);
+        border: 1px solid rgba(56, 189, 248, 0.3);
+        padding: 2px 10px;
+        border-radius: 20px;
+        margin-bottom: 8px;
+    }
+
+    /* Hover Animation */
+    .cycle-card:hover {
+        transform: translateY(-6px) scale(1.03);
+        border-color: #38bdf8;
+        box-shadow: 0 10px 30px rgba(56, 189, 248, 0.25);
+        color: #ffffff;
+    }
+
+    /* Highlight specifically for Repeat step */
+    .repeat-card:hover {
+        border-color: #c084fc;
+        box-shadow: 0 10px 30px rgba(192, 132, 252, 0.3);
+    }
+    
+    .repeat-card .step-badge {
+        color: #c084fc;
+        background: rgba(192, 132, 252, 0.1);
+        border-color: rgba(192, 132, 252, 0.3);
+    }
+
+    /* Animated Pulsing Arrows */
+    .arrow {
+        font-size: 1.5rem;
+        color: #64748b;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        animation: pulse-arrow 2s infinite ease-in-out;
+    }
+
+    @keyframes pulse-arrow {
+        0%, 100% { transform: translateX(0); opacity: 0.6; }
+        50% { transform: translateX(4px); opacity: 1; color: #38bdf8; }
+    }
+
+    .repeat-arrow {
+        color: #c084fc;
+    }
+
+    /* Mobile Responsive view */
+    @media (max-width: 850px) {
+        .cycle-container {
+            flex-direction: column;
+            gap: 12px;
+        }
+        .arrow {
+            transform: rotate(90deg);
+            animation: pulse-down 2s infinite ease-in-out;
+        }
+        @keyframes pulse-down {
+            0%, 100% { transform: rotate(90deg) translateX(0); opacity: 0.6; }
+            50% { transform: rotate(90deg) translateX(4px); opacity: 1; color: #38bdf8; }
+        }
+        .dsa-title {
+            font-size: 2.5rem !important;
+        }
+    }
+</style>
+
+<div class="dsa-header">
+    <h1 class="dsa-title">My DSA-Handbook</h1>
+    
+    <div class="cycle-container">
+        <div class="cycle-card">
+            <span class="step-badge">STEP 01</span>
+            <span>Code</span>
+        </div>
+        
+        <div class="arrow">&#10140;</div>
+        
+        <div class="cycle-card">
+            <span class="step-badge">STEP 02</span>
+            <span>Create notes in seconds</span>
+        </div>
+        
+        <div class="arrow">&#10140;</div>
+        
+        <div class="cycle-card">
+            <span class="step-badge">STEP 03</span>
+            <span>Crack interviews</span>
+        </div>
+        
+        <div class="arrow repeat-arrow">&#10227;</div>
+        
+        <div class="cycle-card repeat-card">
+            <span class="step-badge">CYCLE</span>
+            <span>Repeat</span>
+        </div>
+    </div>
 </div>
 """
-st.markdown(custom_html, unsafe_allow_html=True)
-st.image('bcgImg.jpg')
+st.html(custom_html)
+# st.image('bcgImg.jpg')
 @st.cache_resource
 def init_connections():
   client_db = pymongo.MongoClient(st.secrets["mongo"]["uri"])
@@ -397,13 +573,13 @@ else:
          st.link_button("Embrace the Surprise",str(link))
         
         
-        level=st.selectbox("Select your level",("","Saved Solutions","Beginner","Intermediate","Expert"))
+        level=st.selectbox("Select your level",("Saved Solutions","Beginner","Intermediate","Expert"))
         if level=="Saved Solutions":
            problem=random.randint(0,len(user_solutions))          
            time.sleep(2)
            st.link_button("Embrace the Surprise",str(user_solutions[problem]['problem_url']))
            time.sleep(1)
-           st.balloons()
+         #   st.balloons()
         else:
          topic=st.selectbox("Select Topic",("Sorting","Array","Binary Search","Strings","Recursion","Linked List","Bit Manipulation","Greedy","Sliding Window","Stack","Queue","Tree","Binary Search Tree","Graph","Dynamic Programming","Other Patterns"))
          df_beg=pd.read_csv('beginner_striver.csv')
