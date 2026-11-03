@@ -581,7 +581,7 @@ else:
         
         level=st.selectbox("Select your level",("Saved Solutions","Beginner","Intermediate","Expert"))
         if level=="Saved Solutions":
-           problem=random.randint(0,len(user_solutions))          
+           problem=random.randint(0,len(user_solutions)-1)          
            time.sleep(2)
            st.link_button("Embrace the Surprise",str(user_solutions[problem]['problem_url']))
            time.sleep(1)
