@@ -178,20 +178,25 @@ custom_html = """
         
         <div class="cycle-card">
             <span class="step-badge">STEP 02</span>
-            <span>Create notes in seconds</span>
+            <span>Create Notes</span>
+            <span>In Seconds</span>
         </div>
         
         <div class="arrow">&#10140;</div>
-        
+        <div class="cycle-card">
+                    <span class="step-badge">STEP 03</span>
+                    <span>Revise</span>
+                </div>
+         <div class="arrow">&#10140;</div>
         <div class="cycle-card">
             <span class="step-badge">STEP 03</span>
-            <span>Crack interviews</span>
+            <span>Crack Interviews</span>
         </div>
         
         <div class="arrow repeat-arrow">&#10227;</div>
         
         <div class="cycle-card repeat-card">
-            <span class="step-badge">CYCLE</span>
+            <span class="step-badge">Perfect Loop</span>
             <span>Repeat</span>
         </div>
     </div>
