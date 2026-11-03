@@ -180,7 +180,7 @@ custom_html = """
         <div class="cycle-card">
             <span class="step-badge">STEP 02</span>
             <span>Create Notes</span>
-            <span>In Seconds</span>
+            
         </div>
         
         <div class="arrow">&#10140;</div>
