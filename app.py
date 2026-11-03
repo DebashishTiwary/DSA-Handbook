@@ -166,7 +166,8 @@ custom_html = """
 </style>
 
 <div class="dsa-header">
-    <h1 class="dsa-title">My DSA-Handbook</h1>
+    <h1 class="dsa-title">My DSA-Handbook<br><p>Everything  is  an  Algorithm !</p></h1>
+    
     
     <div class="cycle-container">
         <div class="cycle-card">
