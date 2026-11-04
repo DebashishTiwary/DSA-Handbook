@@ -214,6 +214,7 @@ def init_connections():
 client_mongo=init_connections()
 db=client_mongo["dsa_platform"]
 
+
 def extract_problem_title(url):
   match = re.search(r"/problems/([^/]+)", url)
   if match:
@@ -257,9 +258,28 @@ if not st.user.is_logged_in:
   if st.button("Sign Up/Log in"):
     st.login()
 else:
+#   picture=dict(st.user)["picture"]
+#   st.write(picture)
+  user_avatar = st.user.get("picture", "logo.JPG")
+  st.logo(user_avatar)
   st.sidebar.success(f"Logged in as: {st.user.name}")
+  user_email=st.user.email
+#   user_list=db.list_collection_names()
+  user_db_email= f'user_db_{user_email}'
+
+     
+   
   if st.sidebar.button("Log out"):
     st.logout()
+  st.container()
+  st.container()
+  st.container()
+  st.container()
+  if st.sidebar.button("Delete Account",type="primary"):
+     db[user_db_email].drop()
+     st.logout()
+     
+          
 # -------------------------------------------------------------------------
 
   tab1,tab2,tab3=st.tabs(["Upcomig Contests","My Solutions","Gymkhana"])
@@ -360,13 +380,13 @@ else:
                         "explanation": explanation,
                         "author_email": st.user.email,
                             }
-                            db.solutions.insert_one(solution_doc)
+                            db[user_db_email].insert_one(solution_doc)
                             st.success("Successfully added to your personal handbook!")
                             st.rerun()
                     else:
         
                        st.error("Please provide both the problem link and your code.")
-        user_solutions=list(db.solutions.find({"author_email":st.user.email}))
+        user_solutions=list(db[user_db_email].find({"author_email":st.user.email}))
         
         user_solutions_array=[]
         user_solutions_sorting=[]
@@ -475,7 +495,7 @@ else:
                                              st.link_button("AI Help!!",claude_url)
                                           with col_save:
                                              if st.button("Save Changes", key=f"save_{sol_id_str}"):
-                                                db.solutions.update_one(
+                                                db[user_db_email].update_one(
                                                       {"_id": sol["_id"]},
                                                       {"$set": {"explanation": updated_explanation}},
                                                       )
@@ -489,7 +509,7 @@ else:
                                    with code:
                                       st.code(sol["code"])
                                    if st.button("Delete Problem Card", key=str(sol["_id"])):
-                                     db.solutions.delete_one({"_id": sol["_id"]})
+                                     db[user_db_email].delete_one({"_id": sol["_id"]})
                                      st.success("Card deleted!")
                                      st.rerun()
                                   
