@@ -253,8 +253,8 @@ def convert2IST(timestamp):
 
 
 if not st.user.is_logged_in:
-  st.warning("Please log in to access your personal DSA handbook.")
-  if st.button("Log in"):
+  st.warning("Please log in/Sign Up to access your personal DSA handbook.")
+  if st.button("Sign Up/Log in"):
     st.login()
 else:
   st.sidebar.success(f"Logged in as: {st.user.name}")
@@ -316,7 +316,7 @@ else:
         )
    except Exception as e:
       st.write("Please try in some time!")
-      # print(e)
+      print(e)
 
 
 
@@ -568,8 +568,7 @@ else:
          link=linkfile.loc[row_level]
          if hasattr(link, "values"):
             link = link.values[0]
-         time.sleep(2)
-         st.balloons()
+         time.sleep(2)        
          if lev=="Beginner":
             model=load_model_beg()
          elif lev=="Intermediate":
@@ -577,6 +576,7 @@ else:
          est_time=model.predict(df)
          st.write(f'Estimated Max Time: {math.ceil(est_time[0])} mins for you')
          st.link_button("Embrace the Surprise",str(link))
+         st.balloons()
         
         
         level=st.selectbox("Select your level",("Saved Solutions","Beginner","Intermediate","Expert"))
