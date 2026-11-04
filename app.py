@@ -581,10 +581,13 @@ else:
         
         level=st.selectbox("Select your level",("Saved Solutions","Beginner","Intermediate","Expert"))
         if level=="Saved Solutions":
-           problem=random.randint(0,len(user_solutions)-1)          
-           time.sleep(2)
-           st.link_button("Embrace the Surprise",str(user_solutions[problem]['problem_url']))
-           time.sleep(1)
+           try:
+            problem=random.randint(0,len(user_solutions)-1)          
+            time.sleep(2)
+            st.link_button("Embrace the Surprise",str(user_solutions[problem]['problem_url']))
+            time.sleep(1)
+           except Exception as e:
+              st.write("Seems,You haven't added solutions yet!!")
          #   st.balloons()
         else:
          topic=st.selectbox("Select Topic",("Sorting","Array","Binary Search","Strings","Recursion","Linked List","Bit Manipulation","Greedy","Sliding Window","Stack","Queue","Tree","Binary Search Tree","Graph","Dynamic Programming","Other Patterns"))
