@@ -585,7 +585,7 @@ else:
             problem=random.randint(0,len(user_solutions)-1)          
             time.sleep(2)
             st.link_button("Embrace the Surprise",str(user_solutions[problem]['problem_url']))
-            
+            time.sleep(1)
            except Exception as e:
               st.write("Seems,You haven't added solutions yet!!")
          #   st.balloons()
