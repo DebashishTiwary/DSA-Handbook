@@ -275,6 +275,7 @@ else:
   st.container()
   st.container()
   st.container()
+  st.container()
   if st.sidebar.button("Delete Account",type="primary"):
      db[user_db_email].drop()
      st.logout()
