@@ -1,4 +1,4 @@
-# 📚 DSA Handbook
+#  DSA Handbook
 
 [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_svg.py)](https://dsa-handbook.streamlit.app/)
 
