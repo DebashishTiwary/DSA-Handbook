@@ -3,4 +3,4 @@ google-genai==2.33.0
 pymongo==4.19.0
 requests==2.34.2
 pandas==3.1.0
-sklearn==1.9.1
+scikit-learn==1.9.1
