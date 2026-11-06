@@ -1,6 +1,5 @@
 #  DSA Handbook
 
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_svg.py)](https://dsa-handbook.streamlit.app/)
 
 A personalized Data Structures and Algorithms handbook designed for developers to store, review, and master problem-solving. It features an interactive practice arena, machine learning-driven performance estimation, and automated AI code explanations.
 
@@ -28,10 +27,9 @@ A personalized Data Structures and Algorithms handbook designed for developers t
 ---
 
 
+### 💡 Valuable Suggestions & Bug Finders
 
-### Valuable Suggestions & Bug Finders:
-
-- Omar : 
-LinkedIn: https://www.linkedin.com/in/omar-ansari-83ba64231/
-Finding: Found Bug in Delete Account button , which was bypassing final confirmation from user and instantly deleting the account on clicking it.
+- **Name:** Omar
+- **LinkedIn:** https://www.linkedin.com/in/omar-ansari-83ba64231/
+- **Finding:** Found bug in Delete Account button, which was bypassing final confirmation from user and instantly deleting the account on clicking it.
 
